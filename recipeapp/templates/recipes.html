@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8 text-center order-2 order-sm-1">
+        {% for recipe in recipes %}
+            <article class="text-center recipe-heading">
+                <h2 class="text-center"><a class="article-title"
+                        href="{{ url_for('recipes.recipe', recipe_id=recipe.id) }}">{{ recipe.title }}</a></h2>
+            </article>
+        {% endfor %}
+    </div>
+    <div class="col-md-4 text-center order-1 order-sm-2">
+        <form action="{{ url_for('recipes.recipes_searchb') }}" method="POST">
+            <input class="form-control active-purple-4 active-purple-3 mb-4" type="text/submit" placeholder="Search"
+                aria-label="Search" name="search">
+        </form>
+        <div class="content-section">
+            <h3>Courses</h3>
+            <p class='text-muted' id='testclass'>Browse Recipes by Course.
+                <ul class="list-group">
+                    <li class="list-group-item list-group-item-light"><a
+                            href="{{ url_for('recipes.recipes_course', course='breakfast') }}">Breakfast</a></li>
+                    <li class="list-group-item list-group-item-light"><a
+                            href="{{ url_for('recipes.recipes_course', course='lunch') }}">Lunch</a></li>
+                    <li class="list-group-item list-group-item-light"><a
+                            href="{{ url_for('recipes.recipes_course', course='dinner') }}">Dinner</a></li>
+                    <li class="list-group-item list-group-item-light"><a
+                            href="{{ url_for('recipes.recipes_course', course='drink') }}">Drinks</a></li>
+                    <li class="list-group-item list-group-item-light"><a
+                            href="{{ url_for('recipes.recipes_course', course='snack') }}">Snacks</a></li>
+                </ul>
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock content%}
+
+
