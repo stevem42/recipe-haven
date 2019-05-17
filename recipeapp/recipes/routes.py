@@ -14,7 +14,7 @@ recipes = Blueprint('recipes', __name__)
 def add_recipe():
     form = RecipeForm()
     if form.validate_on_submit():
-        recipe = Recipe(title=form.title.data, ingredients=form.ingredients.data, directions=form.directions.data, author=current_user, course=form.course.data, notes=form.notes.data)
+        recipe = Recipe(title=form.title.data, ingredients=form.ingredients.data, directions=form.directions.data, author=current_user, course=form.course.data, notes=form.notes.data, recipe_image=picture.form.data)
         db.session.add(recipe)
         db.session.commit()
         flash(f'{ recipe.title } Added', 'success')
