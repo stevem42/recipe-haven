@@ -51,6 +51,7 @@ body {
 }
 
 .ingredients {
+    font-size: 22px;
     background: #ffffff;
     padding: 10px 20px;
     border: 1px solid #bbbbbb;
